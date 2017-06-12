@@ -10,7 +10,6 @@ import  { fetchPosts } from '../actions';
 
 class PostsIndex extends Component {
   componentDidMount(){
-
     this.props.fetchPosts();
   }
 
@@ -22,10 +21,9 @@ class PostsIndex extends Component {
         </li>
       )
     })
-  }
+  };
 
   render() {
-    console.log(this.props.posts)
     return (
       <div>
         <h3>Posts</h3>

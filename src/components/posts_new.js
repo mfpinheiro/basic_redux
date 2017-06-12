@@ -28,7 +28,9 @@ class PostNew extends Component {
   };
 
   onSubmit = (values) => {
-    this.props.createPost(values);
+    this.props.createPost(values, () => {
+      this.props.history.push('/');
+    });
   };
 
   render() {
@@ -59,7 +61,6 @@ class PostNew extends Component {
 }
 
 function validate(values) {
-  // console.log(values)
   const erros = {};
 
   if (!values.title) {
@@ -78,5 +79,5 @@ export default reduxForm({
   validate,
   form: 'PostNewForm'
 })(
-  connect(null, {createPost})(PostNew)
+  connect(null, { createPost })(PostNew)
 );
